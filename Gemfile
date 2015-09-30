@@ -92,3 +92,6 @@ gem 'mailcatcher'
 #  # bundle exec rake doc:rails generates the API under doc/api.
 #  gem 'sdoc', require: false
 #end
+
+# Open up to requests from other domains for IMMUNIO demo purposes
+gem 'rack-cors', require: 'rack/cors'

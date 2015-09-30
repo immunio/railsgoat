@@ -54,5 +54,13 @@ module Railsgoat
     config.assets.version = '1.0'
 
     I18n.config.enforce_available_locales = false
+
+    # Open up to requests from other domains for IMMUNIO demo purposes
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post], max_age: 0
+      end
+    end
   end
 end

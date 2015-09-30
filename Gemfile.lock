@@ -200,6 +200,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-livereload (0.3.15)
       rack
     rack-protection (1.5.3)
@@ -349,6 +350,7 @@ DEPENDENCIES
   powder
   pry
   pry-rails
+  rack-cors
   rack-livereload
   rails (= 4.2.2)
   rb-fsevent
