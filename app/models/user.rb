@@ -1,4 +1,5 @@
 require 'encryption'
+require 'immunio'
 
 class User < ActiveRecord::Base
   validates :password, :presence => true,
@@ -47,10 +48,14 @@ class User < ActiveRecord::Base
   def self.authenticate(email, password)
     auth = nil
     user = find_by_email(email)
-    raise "#{email} doesn't exist!" if !(user)
+    if !(user)
+      Immunio.failed_login username: email
+      raise "#{email} doesn't exist!"
+    end
     if user.password == Digest::MD5.hexdigest(password)
       auth = user
     else
+      Immunio.failed_login username: email
       raise "Incorrect Password!"
     end
     return auth
