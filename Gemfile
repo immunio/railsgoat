@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'immunio'
+
 #don't upgrade
 gem 'rails', '4.2.6'
 
